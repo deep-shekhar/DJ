@@ -11,12 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\DJ\log.h" />
     <ClInclude Include="src\DJ.h" />
     <ClInclude Include="src\DJ\Application.h" />
     <ClInclude Include="src\DJ\Core_Stuff.h" />
     <ClInclude Include="src\DJ\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LOG.CPP" />
+    <ClCompile Include="src\DJ\log.cpp" />
     <ClCompile Include="src\DJ\Application.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -70,6 +73,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>DJ_PLATFORM_WINDOWS;DJ_BUILD_DLL;_WINDLI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)DJ\vendor\spdlog_module\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -86,6 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>DJ_PLATFORM_WINDOWS;DJ_BUILD_DLL;_WINDLI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)DJ\vendor\spdlog_module\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

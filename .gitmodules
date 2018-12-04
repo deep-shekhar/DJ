@@ -1,0 +1,3 @@
+[submodule "DJ/vendor/spdlog_module"]
+	path = DJ/vendor/spdlog_module
+	url = https://github.com/gabime/spdlog
