@@ -17,6 +17,9 @@ project "DJ"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
+	pchheader "djpch.h"
+	pchsource "DJ/src/djpch.cpp"	
+		
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -25,13 +28,14 @@ project "DJ"
 	
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog_module/include"
 	}
 	
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.17134.0"
+		systemversion "latest "
 		
 	defines
 	{
@@ -88,7 +92,7 @@ project "Sandbox"
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.17134.0"
+		systemversion "latest "
 		
 	defines
 	{

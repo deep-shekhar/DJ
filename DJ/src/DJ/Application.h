@@ -1,5 +1,6 @@
 #pragma once
 #include "Core_Stuff.h"
+#include "Events/Event.h"
 
 namespace DJ {
 	class DJ_API Application

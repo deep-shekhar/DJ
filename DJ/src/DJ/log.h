@@ -1,8 +1,11 @@
 #pragma once
-#include <memory>
+
+//included in precompiled header
+//#include <memory>
 
 #include "Core_Stuff.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 namespace DJ {
 

@@ -8,3 +8,9 @@
 #else
 	#error DJ Engine only supports Windows!
 #endif
+
+#define BIT(x) (1 << x)
+//included in precompiled header
+#include <sstream>
+#include <string>
+#include <functional>
