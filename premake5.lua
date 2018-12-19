@@ -9,6 +9,12 @@ workspace "DJ"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"	
+
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "DJ/vendor/GLFW/include"
+
+include "DJ/vendor/GLFW"
 	
 project "DJ"
 	location "DJ"
@@ -29,13 +35,20 @@ project "DJ"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog_module/include"
+		"%{prj.name}/vendor/spdlog_module/include",
+		"%{IncludeDir.GLFW}"
+	}
+	
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 	
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "latest "
+		systemversion "10.0.17134.0"
 		
 	defines
 	{
@@ -50,15 +63,15 @@ project "DJ"
 	}
 	
 	filter "configurations:Debug"
-		defines "HZ_DEBUG"
+		defines "DJ_DEBUG"
 		symbols "On"
 		
 	filter "configurations:Release"
-		defines "HZ_RELEASE"
+		defines "DJ_RELEASE"
 		optimize "On"	
 	
 	filter "configurations:Dist"
-		defines "HZ_DIST"
+		defines "DJ_DIST"
 		optimize "On"	
 	
 	--filter { "system:windows" , "configurations:Release" }
@@ -92,7 +105,7 @@ project "Sandbox"
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "latest "
+		systemversion "10.0.17134.0"
 		
 	defines
 	{
@@ -100,15 +113,15 @@ project "Sandbox"
 	}
 	
 	filter "configurations:Debug"
-		defines "HZ_DEBUG"
+		defines "DJ_DEBUG"
 		symbols "On"
 		
 	filter "configurations:Release"
-		defines "HZ_RELEASE"
+		defines "DJ_RELEASE"
 		optimize "On"	
 	
 	filter "configurations:Dist"
-		defines "HZ_DIST"
+		defines "DJ_DIST"
 		optimize "On"	
 	
 	

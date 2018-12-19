@@ -9,8 +9,16 @@
 	#error DJ Engine only supports Windows!
 #endif
 
+#ifdef DJ_ENABLE_ASSERTS
+	#define DJ_ASSERT(x, ...) { if(!(x)) { DJ_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define DJ_CORE_ASSERT(x, ...) { if(!(x)) { DJ_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+
+#else
+	#define DJ_ASSERT(x, ...)
+	#define DJ_CORE_ASSERT(x, ...)
+
+#endif
+
+
 #define BIT(x) (1 << x)
-//included in precompiled header
-#include <sstream>
-#include <string>
-#include <functional>
+

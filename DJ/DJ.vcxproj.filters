@@ -4,6 +4,15 @@
     <Filter Include="DJ">
       <UniqueIdentifier>{53735900-3FFF-870B-A8AD-880B9458880B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DJ\Events">
+      <UniqueIdentifier>{D7C3A7F9-432E-5C70-8C6C-0D16F8153AC5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DJ.h" />
@@ -16,15 +25,26 @@
     <ClInclude Include="src\DJ\EntryPoint.h">
       <Filter>DJ</Filter>
     </ClInclude>
+    <ClInclude Include="src\DJ\Events\ApplicationEvent.h">
+      <Filter>DJ\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DJ\Events\Event.h">
+      <Filter>DJ\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DJ\Events\KeyEvent.h">
+      <Filter>DJ\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DJ\Events\MouseEvent.h">
+      <Filter>DJ\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\DJ\log.h">
       <Filter>DJ</Filter>
     </ClInclude>
-    <ClInclude Include="src\DJ\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\DJ\Events\Event.h" />
-    <ClInclude Include="src\DJ\Events\KeyEvent.h" />
-    <ClInclude Include="src\DJ\Events\MouseEvent.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\djpch.h" />
-    <ClInclude Include="djpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DJ\Application.cpp">
@@ -32,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="src\DJ\log.cpp">
       <Filter>DJ</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\djpch.cpp" />
   </ItemGroup>

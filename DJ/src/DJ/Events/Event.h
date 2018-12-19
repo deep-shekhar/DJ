@@ -1,13 +1,9 @@
 #pragma once
 
-#include "../Core_Stuff.h"
+#include "djpch.h"
+#include "DJ/Core_Stuff.h"
 
 namespace DJ {
-
-	// Events in DJ are currently blocking, meaning when an event occurs it
-	// immediately gets dispatched and must be dealt with right then an there.
-	// For the future, a better strategy might be to buffer events in an event
-	// bus and process them during the "event" part of the update stage.
 
 	enum class EventType
 	{
@@ -64,17 +60,12 @@ namespace DJ {
 		template<typename T>
 		bool Dispatch(EventFn<T> func)
 		{
-			try {
-				if (m_Event.GetEventType() == T::GetStaticType())
-				{
-					m_Event.m_Handled = func(*(T*)&m_Event);
-					return true;
-				}
-				return false;
+			if (m_Event.GetEventType() == T::GetStaticType())
+			{
+				m_Event.m_Handled = func(*(T*)&m_Event);
+				return true;
 			}
-			catch (...) {
-				DJ_CORE_ERROR("error in Event.h file!");
-			}
+			return false;
 		}
 	private:
 		Event& m_Event;
